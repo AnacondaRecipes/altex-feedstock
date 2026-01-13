@@ -32,17 +32,17 @@ test:
     - altex
   requires:
     - pip
-    - pytest
+    - pytest >=7.4.4
   commands:
     - pip check
     - pytest -v
 
 about:
-  home: https://github.com/iboard/altex
+  home: https://github.com/arnaudmiribel/altex
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: Altex is a bunch of independent mix-projects which works together to support a clean architecture in your code.
-  description: Altex is a bunch of independent mix-projects which works together to support a clean architecture in your code.
-  doc_url: https://github.com/iboard/altex/blob/main/README.md
-  dev_url: https://github.com/iboard/altex
+  summary: A simple wrapper on top of Altair to make charts in Streamlit with an express API.
+  description: A simple wrapper on top of Altair to make charts in Streamlit with an express API.
+  doc_url: https://github.com/arnaudmiribel/altex/blob/main/README.md
+  dev_url: https://github.com/arnaudmiribel/altex
