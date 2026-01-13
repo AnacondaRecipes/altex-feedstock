@@ -1,0 +1,48 @@
+{% set name = "altex" %}
+{% set version = "0.2.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5ed6404af0d242a751111bd78421951d5e7025f9c559b7bcb151d3b4e63299d7
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  skip: true  # [py<39 or py>313]
+
+requirements:
+  host:
+    - pip
+    - python
+    - hatchling
+  run:
+    - python
+    - altair >=4.0.0
+    - pandas >=1.0.0
+    - streamlit >=1.18.0
+
+test:
+  source_files:
+    - tests
+  imports:
+    - altex
+  requires:
+    - pip
+    - pytest >=7.4.4
+  commands:
+    - pip check
+    - pytest -v
+
+about:
+  home: https://github.com/arnaudmiribel/altex
+  license: Apache-2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: A simple wrapper on top of Altair to make charts in Streamlit with an express API.
+  description: A simple wrapper on top of Altair to make charts in Streamlit with an express API.
+  doc_url: https://github.com/arnaudmiribel/altex/blob/main/README.md
+  dev_url: https://github.com/arnaudmiribel/altex
